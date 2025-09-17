@@ -4,7 +4,9 @@ import { CartItem } from './assets/interfaces';
 import { useCustomHook } from './components/misc';
 import { Header } from './components/sections/Header';
 import { HomePage } from './components/pages/HomePage';
+import { AboutUsPage } from './components/pages/AboutUsPage';
 import { ContactUsPage } from './components/pages/ContactUsPage';
+
 
 export default function App() {
   
@@ -49,8 +51,8 @@ export default function App() {
 
   const renderPage = () => {
     switch (currentPage) {
-      // case 'about-us':
-      //   return <BusinessModelPage onNavigate={handleNavigate} />
+      case 'about-us':
+        return <AboutUsPage onNavigate={handleNavigate} />
       // case 'products':
       //   return <ProductsPage onNavigate={handleNavigate} addToCart={addToCart} />
       // case 'customer-feedback':
