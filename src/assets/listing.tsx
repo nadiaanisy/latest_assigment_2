@@ -1,6 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import {
-  Mail,
   Instagram,
+  Mail,
   MessageCircle
 } from 'lucide-react';
 import {
