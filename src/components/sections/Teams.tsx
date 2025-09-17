@@ -2,7 +2,7 @@ import { Badge } from '../ui/badge';
 import { Users } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '../ui/card';
-import { teamMembers } from '../../assets/team-members';
+import { teamMembers } from '../../assets/listing';
 import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar';
 
 export function Teams() {

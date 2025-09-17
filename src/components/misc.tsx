@@ -14,6 +14,7 @@ export function cn(...inputs: ClassValue[]) {
 export const useCustomHook = () => {
   const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState('home');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState(() => i18n.language.toLowerCase());
 
@@ -30,13 +31,15 @@ export const useCustomHook = () => {
 
   /*Get Current Language*/
   const getCurrentLanguage = () => {
-    return languages.find(lang => lang.code === currentLanguage.toUpperCase()) || languages[0];
+    return languages.find(lang => lang.code === localStorage.getItem('i18nextLng')) || languages[0];
   }
 
   return {
     t,
     currentPage,
     setCurrentPage,
+    isSubmitting,
+    setIsSubmitting,
     mobileMenuOpen,
     setMobileMenuOpen,
     currentLanguage,
@@ -52,7 +55,7 @@ export const navigationItems = [
   // { key: 'about-us', label: 'MENU_LIST.ABOUT_US' },
   // { key: 'products', label: 'MENU_LIST.PRODUCTS' },
   // { key: 'testimonial', label: 'MENU_LIST.TESTIMONIAL' },
-  // { key: 'contact-us', label: 'MENU_LIST.CONTACT_US' }
+  { key: 'contact-us', label: 'MENU_LIST.CONTACT_US' }
 ];
 
 export const languages = [
@@ -90,9 +93,26 @@ export function ImageWithFallback(props: React.ImgHTMLAttributes<HTMLImageElemen
   )
 }
 
-export function handleWhatsAppOrderFromSlider () {
+export const whatsappNumber = "+1234567890" // Replace with actual WhatsApp number
+export const instagramHandle = "@veyraglobalventures"
+export const email = "hello@veyraglobalventures.com"
+
+export function handleWhatsAppOrderFromSlider() {
   const message = "Hi! I'm interested in ordering Wetty products. Can you help me?"
   const encodedMessage = encodeURIComponent(message)
-  const whatsappNumber = "+1234567890" // Replace with actual number
   window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+}
+
+export function handleWhatsAppClickOnContactUs() {
+  const message = "Hi! I'm interested in learning more about Veyra products."
+  const encodedMessage = encodeURIComponent(message)
+  window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank')
+}
+
+export function handleInstagramClickOnContactUs() {
+  window.open(`https://instagram.com/${instagramHandle.replace('@', '')}`, '_blank')
+}
+
+export function handleEmailClickOnContactUs() {
+  window.open(`mailto:${email}`, '_blank')
 }

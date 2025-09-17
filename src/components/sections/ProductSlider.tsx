@@ -17,7 +17,7 @@ import {
 } from '../../assets/interfaces';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
-import { products_list } from '../../assets/products';
+import { products_list } from '../../assets/listing';
 
 interface ProductSliderProps {
   addToCart: (item: Omit<CartItem, 'quantity'>) => void
